@@ -1,0 +1,52 @@
+[
+    {
+        "name":"The Shawshank Redemption",
+        "date":"1994",
+        "img":"./imgs/img_1.jpg"
+    },
+    {
+        "name":"Se7en",
+        "date":"1995",
+        "img":"./imgs/img_2.jpg"
+    },
+    {
+        "name":"Fargo ",
+        "date":"1996",
+        "img":"./imgs/img_3.jpg"
+    },
+    {
+        "name":"Life Is Beautiful",
+        "date":"1997",
+        "img":"./imgs/img_4.jpg"
+    },
+    {
+        "name":"Saving Private Ryan",
+        "date":"1998",
+        "img":"./imgs/img_5.jpg"
+    },
+    {
+        "name":"Fight Club",
+        "date":"1999",
+        "img":"./imgs/img_6.jpg"
+    },
+    {
+        "name":"Memento",
+        "date":"2000",
+        "img":"./imgs/img_10.jpg"
+    },
+    {
+        "name":"The Lord of the Rings: The Two Towers",
+        "date":"2002",
+        "img":"./imgs/img_7.jpg"
+    },
+    {
+        "name":"Batman Begins",
+        "date":"2005",
+        "img":"./imgs/img_8.jpg"
+    },
+    {
+        "name":"The Departed",
+        "date":"2006",
+        "img":"./imgs/img_9.jpg"
+    }
+]

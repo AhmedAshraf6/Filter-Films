@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css">
+    <title>Filter Films</title>
+    <style>
+      
+        .sp{
+            width: 50%
+        }
+        #names{
+            display:none;
+        }
+        .collection-item{
+            display: flex;
+            align-items: center
+        }
+        h1 span:first-of-type{
+            color:#ff1000
+        }
+        h1 span:last-of-type{
+            
+           color:#06c
+        }
+        p{
+            display: inline-block;
+            margin-right: 20px
+                
+        }
+        img{
+            width: 40px;
+            height: 48px;
+            margin-right: 10px;
+        }
+        a{
+            margin-right: 10px
+        }
+    </style>
+    </head>
+    <body>
+    
+    <div class="container sp">
+        <h1 class="center-align">
+          <span>Egy</span> <span>Best</span>
+        </h1>
+
+        <input type="text" id="filterInput" placeholder="Search For Films...">
+        <ul id="names" class="collection with-header "></ul>
+    </div>
+    
+    <script>
+      
+
+         let filterInput = document.getElementById('filterInput');
+         filterInput.addEventListener('keyup',getFilms);
+         
+         
+       function getFilms(){ // Function Make Request
+             
+
+          // Assign Request Object To Variable
+          let myRequest = new XMLHttpRequest();
+          // onredystatechange Function Is Called When Ready State Changed
+          myRequest.onreadystatechange = function(){
+              
+              if(this.readyState === 4 && this.status === 200){
+                  
+                  let ul = document.getElementById('names');
+                  let filterValue = document.getElementById('filterInput').value.toUpperCase();
+                  let myJsonObect =JSON.parse(this.responseText);
+
+                    let results =''; 
+                    let counter = 0;
+                  for(let i=0;i<myJsonObect.length;i++){
+                      
+                      counter++;
+                    if(counter==6){
+                       break;    
+                    }                    
+                    if(myJsonObect[i].name.toUpperCase().indexOf(filterValue)>-1){
+                        
+                       results+=`<li class="collection-item"><img src='${myJsonObect[i].img}'><a href="#">${myJsonObect[i].name}</a><p>${myJsonObect[i].date}</p></li>`;
+                       
+                    } 
+                      
+                  }
+                 ul.innerHTML = results;
+                  results?ul.style.display='block':ul.style.display='none';
+              }
+          };
+          myRequest.open(
+              "GET",
+              "filter.json",
+              true
+          );
+          myRequest.send();
+
+      }
+
+      
+    </script>
+</body>
+</html>
+
+
+     
+
+                     
